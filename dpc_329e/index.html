@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="luckyNumberApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>/r/dailyprogrammer Challenge 329 (Easy)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-resource.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="container" ng-controller="luckyNumberController as luckynumber">
+            <table>
+                <tr>
+                    <td>103</td>
+                    <td>{{ luckynumber.getOutput(103) }}</td>
+                </tr>
+                <tr>
+                    <td>225</td>
+                    <td>{{ luckynumber.getOutput(225) }}</td>
+                </tr>
+                <tr>
+                    <td>997</td>
+                    <td>{{ luckynumber.getOutput(997) }}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
