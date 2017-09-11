@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>/r/dailyprogrammer Challenge 330 (Intermediate)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div>
+            <button type="button" class="btn btn-primary" onclick="randomValue()">Random</button>
+            <table>
+                <tr>
+                    <td><label>Input 00:</label><pre id="challenge00"></pre></td>
+                    <td><label>Output 00:</label><pre id="test00"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 01:</label><pre id="challenge01"></pre></td>
+                    <td><label>Output 01:</label><pre id="test01"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 02:</label><pre id="challenge02"></pre></td>
+                    <td><label>Output 02:</label><pre id="test02"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 03:</label><pre id="challenge03"></pre></td>
+                    <td><label>Output 03:</label><pre id="test03"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 04:</label><pre id="challenge04"></pre></td>
+                    <td><label>Output 04:</label><pre id="test04"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 05:</label><pre id="challenge05"></pre></td>
+                    <td><label>Output 05:</label><pre id="test05"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 06:</label><pre id="challenge06"></pre></td>
+                    <td><label>Output 06:</label><pre id="test06"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 07:</label><pre id="challenge07"></pre></td>
+                    <td><label>Output 07:</label><pre id="test07"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 08:</label><pre id="challenge08"></pre></td>
+                    <td><label>Output 08:</label><pre id="test08"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 09:</label><pre id="challenge09"></pre></td>
+                    <td><label>Output 09:</label><pre id="test09"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 10:</label><pre id="challenge10"></pre></td>
+                    <td><label>Output 10:</label><pre id="test10"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 11:</label><pre id="challenge11"></pre></td>
+                    <td><label>Output 11:</label><pre id="test11"></pre></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            function randomValue() {
+                var rv = generateRandomValue();
+                document.getElementById('challenge00').textContent = rv;
+                document.getElementById('test00').textContent = convert(rv);
+            }
+            randomValue();
+            
+            document.getElementById('challenge01').textContent = challenge01;
+            document.getElementById('test01').textContent = convert(challenge01);
+            document.getElementById('challenge02').textContent = challenge02;
+            document.getElementById('test02').textContent = convert(challenge02);
+            document.getElementById('challenge03').textContent = challenge03;
+            document.getElementById('test03').textContent = convert(challenge03);
+            document.getElementById('challenge04').textContent = challenge04;
+            document.getElementById('test04').textContent = convert(challenge04);
+            document.getElementById('challenge05').textContent = challenge05;
+            document.getElementById('test05').textContent = convert(challenge05);
+            document.getElementById('challenge06').textContent = challenge06;
+            document.getElementById('test06').textContent = convert(challenge06);
+            document.getElementById('challenge07').textContent = challenge07;
+            document.getElementById('test07').textContent = convert(challenge07);
+            document.getElementById('challenge08').textContent = challenge08;
+            document.getElementById('test08').textContent = convert(challenge08);
+            document.getElementById('challenge09').textContent = challenge09;
+            document.getElementById('test09').textContent = convert(challenge09);
+            document.getElementById('challenge10').textContent = challenge10;
+            document.getElementById('test10').textContent = convert(challenge10);
+            document.getElementById('challenge11').textContent = challenge11;
+            document.getElementById('test11').textContent = convert(challenge11);
+        </script>
+    </body>
+</html>
