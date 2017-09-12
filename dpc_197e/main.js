@@ -33,6 +33,27 @@ function isbnValidate(input) {
     return result;
 }
 
+function isbnGenerate() {
+    var output = '';
+    var c = 0;
+    for (var i = 0; i < 9; i++) {
+        var ci = Math.floor(Math.random() * 10);
+        output += ci.toString();
+        c += (ci * (10 - i));
+    }
+    var remainder = 11 - (c % 11);
+    if (remainder == 11) remainder = 0;
+    if (remainder == 10) remainder = 'X';
+    output += remainder;
+    var piece1 = output.slice(0, 1);
+    var piece2 = output.slice(1, 5);
+    var piece3 = output.slice(5, 9);
+    var piece4 = output.slice(9, 10);
+    var pieces = [piece1, piece2, piece3, piece4];
+    
+    return pieces.join('-');
+}
+
 function pieceValidate(input, length, allowX) {
     var result = true;
     if (input && typeof input == 'string' && input.length == length) {
@@ -51,4 +72,11 @@ function pieceValidate(input, length, allowX) {
         result = false;
     }
     return result;
+}
+
+function createLink(input) {
+    // started limiting requests with Captcha, trying another ISBN lookup service
+    //return 'https://isbnsearch.org/isbn/' + input.split('-').join('');
+    
+    return 'https://www.bookfinder.com/search/?author=&title=&lang=en&new_used=*&destination=us&currency=USD&binding=*&isbn=' + input + '&keywords=&minprice=&maxprice=&min_year=&max_year=&mode=advanced&st=sr&ac=qr';
 }
