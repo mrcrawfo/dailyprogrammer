@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>/r/dailyprogrammer Challenge 188 (Easy)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td><label>Input 1:</label><pre id="challenge1"></pre></td>
+                    <td><label>Output 1:</label><pre id="test1"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 2:</label><pre id="challenge2"></pre></td>
+                    <td><label>Output 2:</label><pre id="test2"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 3:</label><pre id="challenge3"></pre></td>
+                    <td><label>Output 3:</label><pre id="test3"></pre></td>
+                </tr>
+                <tr>
+            </table>
+        </div>
+        <script>
+            document.getElementById('challenge1').textContent = render(challengeBase1);
+            document.getElementById('test1').textContent = render(floodfill(challengeBase1, challengeX1, challengeY1, challengeCharacter1));
+            document.getElementById('challenge2').textContent = render(challengeBase2);
+            document.getElementById('test2').textContent = render(floodfill(challengeBase2, challengeX2, challengeY2, challengeCharacter2));
+            document.getElementById('challenge3').textContent = render(challengeBase3);
+            document.getElementById('test3').textContent = render(floodfill(challengeBase3, challengeX3, challengeY3, challengeCharacter3));
+        </script>
+    </body>
+</html>
