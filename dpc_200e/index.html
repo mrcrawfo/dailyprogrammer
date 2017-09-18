@@ -8,33 +8,51 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="main.css">
-        <script src="main.js"></script>
     </head>
     <body>
         <div>
-            <table>
-                <tr>
-                    <td><label>Input 1:</label><pre id="challenge1"></pre></td>
-                    <td><label>Output 1:</label><pre id="test1"></pre></td>
-                </tr>
-                <tr>
-                    <td><label>Input 2:</label><pre id="challenge2"></pre></td>
-                    <td><label>Output 2:</label><pre id="test2"></pre></td>
-                </tr>
-                <tr>
-                    <td><label>Input 3:</label><pre id="challenge3"></pre></td>
-                    <td><label>Output 3:</label><pre id="test3"></pre></td>
-                </tr>
-                <tr>
-            </table>
+            <div class="well">
+                <div class="container">
+                    <canvas id="drawingCanvas" width="400" height="400" style="border:1px solid #d3d3d3;background-color:white"></canvas>
+                    <p style="width:400px"><i>Note: Current implementation can only fill in small areas, too large a fill will result in too many recursive calls and "RangeError: Maximum call stack size exceeded"</i></p>
+                </div>
+                <div class="container">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary active" onclick="activateTool(1)">
+                            <input type="radio" name="options" id="option1" autocomplete="off" active> Pencil
+                        </label>
+                        <label class="btn btn-primary" onclick="activateTool(2)">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Flood Fill
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <table>
+                    <tr>
+                        <td><label>Input 1:</label><pre id="challenge1"></pre></td>
+                        <td><label>Output 1:</label><pre id="test1"></pre></td>
+                    </tr>
+                    <tr>
+                        <td><label>Input 2:</label><pre id="challenge2"></pre></td>
+                        <td><label>Output 2:</label><pre id="test2"></pre></td>
+                    </tr>
+                    <tr>
+                        <td><label>Input 3:</label><pre id="challenge3"></pre></td>
+                        <td><label>Output 3:</label><pre id="test3"></pre></td>
+                    </tr>
+                    <tr>
+                </table>
+            </div>
         </div>
+        <script src="main.js"></script>
         <script>
             document.getElementById('challenge1').textContent = render(challengeBase1);
-            document.getElementById('test1').textContent = render(floodfill(challengeBase1, challengeX1, challengeY1, challengeCharacter1));
+            document.getElementById('test1').textContent = render(characterFloodfill(challengeBase1, challengeX1, challengeY1, challengeCharacter1));
             document.getElementById('challenge2').textContent = render(challengeBase2);
-            document.getElementById('test2').textContent = render(floodfill(challengeBase2, challengeX2, challengeY2, challengeCharacter2));
+            document.getElementById('test2').textContent = render(characterFloodfill(challengeBase2, challengeX2, challengeY2, challengeCharacter2));
             document.getElementById('challenge3').textContent = render(challengeBase3);
-            document.getElementById('test3').textContent = render(floodfill(challengeBase3, challengeX3, challengeY3, challengeCharacter3));
+            document.getElementById('test3').textContent = render(characterFloodfill(challengeBase3, challengeX3, challengeY3, challengeCharacter3));
         </script>
     </body>
 </html>
