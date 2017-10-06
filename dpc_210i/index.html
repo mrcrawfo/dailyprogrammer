@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>/r/dailyprogrammer Challenge 210 (Intermediate)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td><canvas id="challenge1" width="720" height="80"></canvas></td>
+                </tr>
+                <tr>
+                    <td><canvas id="challenge2" width="720" height="80"></canvas></td>
+                </tr>
+                <tr>
+                    <td><canvas id="challenge3" width="720" height="80"></canvas></td>
+                </tr>
+                <tr>
+                    <td><canvas id="challenge4" width="720" height="80"></canvas></td>
+                </tr>
+                <tr>
+                    <td><canvas id="challenge5" width="720" height="80"></canvas></td>
+                </tr>
+                <tr>
+                    <td><canvas id="challenge6" width="720" height="80"></canvas></td>
+                </tr>
+                <tr>
+                    <td><canvas id="challenge7" width="720" height="80"></canvas></td>
+                </tr>
+                <tr>
+                    <td><canvas id="challenge8" width="720" height="80"></canvas></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            drawGradient(document.getElementById('challenge1'), challenge1Start, challenge1End);
+            drawGradient(document.getElementById('challenge2'), challenge2Start, challenge2End);
+            drawGradient(document.getElementById('challenge3'), challenge3Start, challenge3End);
+            drawGradient(document.getElementById('challenge4'), challenge4Start, challenge4End);
+            drawGradient(document.getElementById('challenge5'), challenge5Start, challenge5End);
+            drawGradient(document.getElementById('challenge6'), challenge6Start, challenge6End);
+            drawGradient(document.getElementById('challenge7'), challenge7Start, challenge7End);
+            drawGradient(document.getElementById('challenge8'), challenge8Start, challenge8End);
+        </script>
+    </body>
+</html>
