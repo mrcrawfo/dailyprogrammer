@@ -12,6 +12,9 @@
     </head>
     <body>
         <div>
+            <table id="gameboard"></table>
+        </div>
+        <div>
             <table>
                 <tr>
                     <td><label>Input 1:</label><pre id="challenge1"></pre></td>
@@ -40,6 +43,68 @@
             render('test3', generate(challenge3));
             document.getElementById('challenge4').textContent = challenge4;
             render('test4', generate(challenge4));
+            
+            var gameRows = 20;
+            var gameCols = 20;
+            var gameMines = 75;
+            var gameData = [];
+            var gameboard = document.getElementById('gameboard');
+            var gameInit = false;
+            var gameOver = false;
+            
+            function leftclickHandler(event) {
+                if (!gameOver) {
+                    var row = event.target.dataset.row;
+                    var col = event.target.dataset.col;
+                    var ptd = event.target.parentElement;
+                    ptd.removeChild(event.target);
+                    if (!gameInit) {
+                        gameData = generateGameData([gameRows, gameCols, gameMines], row, col);
+                        gameInit = true;
+                    } else {
+                        var cellData = gameData[row].charAt(col);
+                        if (cellData == '✷') {
+                            var p = document.createElement('p');
+                            p.textContent = '✷';
+                            document.getElementById('cell-' + row + '-' + col).appendChild(p);
+                            gameOver = true;
+                            alert('Game Over');
+                        } else if (cellData != '0') {
+                            var p = document.createElement('p');
+                            p.textContent = cellData;
+                            document.getElementById('cell-' + row + '-' + col).appendChild(p);
+                        } else {
+                            
+                        }
+                    }
+                }
+            }
+            
+            function rightclickHandler(event) {
+                if (!gameOver) {
+                    event.preventDefault();
+                    if (gameInit) {
+                        $(event.target).toggleClass('flagged')
+                    }
+                    return false;
+                }
+            }
+            
+            for(var r = 0; r < gameRows; r++) {
+                var row = document.createElement('tr');
+                for(var c = 0; c < gameCols; c++) {
+                    var col = document.createElement('td');
+                    col.setAttribute('id', 'cell-' + r + '-' + c);
+                    var button = document.createElement('button');
+                    button.setAttribute('data-row', r);
+                    button.setAttribute('data-col', c);
+                    button.addEventListener('click', leftclickHandler);
+                    button.addEventListener('contextmenu', rightclickHandler);
+                    col.appendChild(button);
+                    row.appendChild(col);
+                }
+                gameboard.appendChild(row);
+            }
         </script>
     </body>
 </html>
