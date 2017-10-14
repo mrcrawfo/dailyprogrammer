@@ -12,6 +12,9 @@
     </head>
     <body>
         <div>
+            <div id="gameboardHeader">
+                <h2 id="minesRemaining"></h2>
+            </div>
             <table id="gameboard"></table>
         </div>
         <div>
@@ -52,6 +55,10 @@
             var gameInit = false;
             var gameOver = false;
             
+            var flaggedCorrect = 0;
+            var flaggedIncorrect = 0;
+            var unflagged = 0;
+            
             function leftclickHandler(event) {
                 if (!gameOver) {
                     var row = event.target.dataset.row;
@@ -78,9 +85,8 @@
                             expand(row, col);
                         }
                     }
-                    // if all mines flagged correctly ->
-                    //  gameOver = true;
-                    //  alert('You Win');
+                    
+                    countCells();
                 }
             }
             
@@ -181,6 +187,35 @@
                 }
             }
             
+            function countCells() {
+                flaggedCorrect = 0;
+                flaggedIncorrect = 0;
+                unflagged = 0;
+                
+                for(var row = 0; row < gameData.length; row++) {
+                    for(var col = 0; col < gameData[0].length; col++) {
+                        var contents = document.getElementById('cell-' + row + '-' + col).firstChild;
+                        if (contents && contents.tagName.toLowerCase() == 'button') {
+                            if (contents.className == 'flagged') {
+                                if (gameData[row].charAt(col) == '✷') {
+                                    flaggedCorrect++;
+                                } else {
+                                    flaggedIncorrect++;
+                                }
+                            } else {
+                                unflagged++;
+                            }
+                        }
+                    }
+                }
+                document.getElementById('minesRemaining').textContent = Math.max(0, (gameMines - (flaggedCorrect + flaggedIncorrect)));
+                
+                if (flaggedCorrect == gameMines && flaggedIncorrect == 0 && unflagged == 0) {
+                    gameOver = true;
+                    alert('You Win');
+                }
+            }
+            
             function rightclickHandler(event) {
                 if (!gameOver) {
                     event.preventDefault();
@@ -188,13 +223,7 @@
                         $(event.target).toggleClass('flagged')
                     }
                     
-                    // count mines flagged total
-                    // count mines flagged correctly
-                    // update display
-                    
-                    // if all mines flagged correctly ->
-                    //  gameOver = true;
-                    //  alert('You Win');
+                    countCells();
                     
                     return false;
                 }
@@ -215,6 +244,8 @@
                 }
                 gameboard.appendChild(row);
             }
+            
+            countCells();
         </script>
     </body>
 </html>
