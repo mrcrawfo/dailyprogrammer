@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>/r/dailyprogrammer Challenge 146 (Easy)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div>
+            <table>
+                <tr>
+                    <td><label>Input 1:</label><pre id="challenge1"></pre></td>
+                    <td><label>Output 1:</label><pre id="test1"></pre></td>
+                </tr>
+                <tr>
+                    <td><label>Input 2:</label><pre id="challenge2"></pre></td>
+                    <td><label>Output 2:</label><pre id="test2"></pre></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            document.getElementById('challenge1').textContent = sides1 + ', ' + circumradius1;
+            document.getElementById('test1').textContent = solve(sides1, circumradius1);
+            document.getElementById('challenge2').textContent = sides2 + ', ' + circumradius2;
+            document.getElementById('test2').textContent = solve(sides2, circumradius2);
+        </script>
+    </body>
+</html>
