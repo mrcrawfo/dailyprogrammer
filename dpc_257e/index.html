@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>/r/dailyprogrammer Challenge ### (Difficulty)</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div class="well">
+            <label>Answer:</label>
+            <p id="year"></p>
+        </div>
+        <div id="tableholder"></div>
+        <script>
+            // https://code.tutsplus.com/tutorials/parsing-a-csv-file-with-javascript--cms-25626
+            
+            $.ajax({ url: 'presidents.csv', dataType: 'text', }).done(successFunction);
+
+            function successFunction(data) {
+                var allRows = data.split(/\r?\n|\r/);
+                var table = '<table id="datatable">';
+                
+                for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
+                    if (singleRow === 0) {
+                        table += '<thead>';
+                        table += '<tr>';
+                    } else {
+                        table += '<tr class="dataRow" id="dataRow' + (singleRow - 1) +'">';
+                    }
+                    var rowCells = allRows[singleRow].split(',');
+                    for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
+                        if (singleRow === 0) {
+                            table += '<th>';
+                            table += rowCells[rowCell];
+                            table += '</th>';
+                        } else {
+                            table += '<td class="dataCol" id="dataCol' + rowCell + '">';
+                            table += rowCells[rowCell];
+                            table += '</td>';
+                        }
+                    }
+                    if (singleRow === 0) {
+                        table += '</tr>';
+                        table += '</thead>';
+                        table += '<tbody>';
+                    } else {
+                        table += '</tr>';
+                    }
+                }
+                
+                table += '</tbody>';
+                table += '</table>';
+                
+                $('#tableholder').append(table);
+                
+                document.getElementById('year').textContent = solve();
+            }
+        </script>
+    </body>
+</html>
